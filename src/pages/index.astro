@@ -1,47 +1,81 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import { CldImage } from "astro-cloudinary";
+
+import Layout from "../layouts/Layout.astro";
+
+const featuredProducts = await getCollection("featuredProducts");
+console.log("featuredProducts", featuredProducts);
 ---
 
 <Layout title="Home">
   <main class="relative">
     <!-- Banner med roterende baggrundsbilleder -->
-	<div class="w-full mx-auto px-[20px] max-w-[1800px]">
-		<section class="relative h-[700px] bg-cover bg-center animate-banner">
-			<div class="absolute inset-x-0 bottom-12 left-0 flex px-8">
-				<div class="text-white">
-				  <h1 class="text-[90px] uppercase font-bold font-old-standard">Edyta Sørensen</h1>
-				  <h2 class="text-4xl uppercase font-old-standard mt-[-30px]">Fotograf siden 1990</h2>
-				</div>
-		  </div>
-		</section>
-	  </div>
+    <div class="w-full mx-auto px-[20px] max-w-[1800px]">
+      <section class="relative h-[700px] bg-cover bg-center animate-banner">
+        <div class="absolute inset-x-0 bottom-12 left-0 flex px-8">
+          <div class="text-white">
+            <h1 class="text-[90px] uppercase font-bold font-old-standard">
+              Edyta Sørensen
+            </h1>
+            <h2 class="text-4xl uppercase font-old-standard mt-[-30px]">
+              Fotograf siden 1990
+            </h2>
+          </div>
+        </div>
+      </section>
+    </div>
 
-	 <!-- forside -->
+    <!-- forside -->
 
+    <div>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
+          et labore autem maxime praesentium incidunt quisquam at ea sapiente
+          libero voluptatem, atque in delectus distinctio esse omnis iure
+          exercitationem consectetur?
+        </p>
+      </div>
 
-   <div>
-<div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis et labore autem maxime praesentium incidunt quisquam at ea sapiente libero voluptatem, atque in delectus distinctio esse omnis iure exercitationem consectetur?</p></div>
+      <div class="grid grid-cols-3 gap-4">
+        <img src="" alt="Image 1" class="w-72 h-72 object-cover" />
+        <img src="" alt="Image 2" class="w-60 h-60 object-cover" />
+        <img src="" alt="Image 3" class="w-48 h-48 object-cover" />
+      </div>
+    </div>
 
-<div class="grid grid-cols-3 gap-4">
-  <img src="/images/test.png" alt="Image 1" class="w-72 h-72 object-cover" />
-  <img src="/images/test.png" alt="Image 2" class="w-60 h-60 object-cover" />
-  <img src="/images/test.png" alt="Image 3" class="w-48 h-48 object-cover" />
-</div>   </div>
+    <ul>
+      {
+        featuredProducts.map(({ data }) => {
+          return (
+            <li>
+              <CldImage
+                src={data.public_id}
+                width={data.width}
+                height={data.height}
+                alt=""
+              />
+            </li>
+          );
+        })
+      }
+    </ul>
   </main>
 
   <style>
     @keyframes bannerImageRotation {
       0% {
-        background-image: url('/images/edyta2.webp');
+        background-image: url("");
       }
       33% {
-        background-image: url('/images/edyta5.webp');
+        background-image: url("");
       }
       66% {
-        background-image: url('/images/test.png');
+        background-image: url("");
       }
       100% {
-        background-image: url('/images/edyta2.webp');
+        background-image: url("");
       }
     }
 
