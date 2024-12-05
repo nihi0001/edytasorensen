@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Fotokategorier from "../components/Fotokategorier.astro";
+
+const data = await fetch(
+  "https://nizfrlmeuslmzbvoilai.supabase.co/rest/v1/edytasorensen_data",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5pemZybG1ldXNsbXpidm9pbGFpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMxNzM2MDAsImV4cCI6MjA0ODc0OTYwMH0.RQ3OCApyz7TpKmzgRC189LxU9mOzQLPHTIxEIIeFO2Y",
+    },
+  }
+).then((res) => res.json());
+
+
+
+
+          
+
+---
+
+<Layout title="galleri">
+  <main>
+    <section class="bg-gray-100 py-16">
+      <div class="max-w-7xl mx-auto text-center px-6">
+        <!-- Headline -->
+        <h2 class="text-5xl font-bold text-gray-800 mb-6">
+          Vælg din fotosession
+        </h2>
+        <p class="text-lg text-gray-600 mb-12">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste,
+          dolorum natus quod sapiente saepe accusamus ipsam. Ex quam dolor,
+          tenetur nisi, corporis consequatur illo ullam hic minima quibusdam,
+          praesentium perferendis?
+        </p>
+
+        <!-- Grid for kategorier -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Graviditet -->
+          <a
+            href="/graviditet"
+            class="group relative block rounded-lg overflow-hidden shadow-lg"
+          >
+            <img
+              src="/images/graviditet.jpg"
+              alt="Graviditetsfotografering"
+              class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <h3 class="text-white text-3xl font-bold">Graviditet</h3>
+            </div>
+          </a>
+
+          <!-- Familie -->
+          <a
+            href="/familie"
+            class="group relative block rounded-lg overflow-hidden shadow-lg"
+          >
+            <img
+              src="/images/familie.jpg"
+              alt="Familiefotografering"
+              class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <h3 class="text-white text-3xl font-bold">
+                Familiefotografering
+              </h3>
+            </div>
+          </a>
+
+          <!-- Børn -->
+          <a
+            href="/boern"
+            class="group relative block rounded-lg overflow-hidden shadow-lg"
+          >
+            <img
+              src="/images/boern.jpg"
+              alt="Børnefotografering"
+              class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <h3 class="text-white text-3xl font-bold">Børnefotografering</h3>
+            </div>
+          </a>
+
+          <!-- Portræt -->
+          <a
+            href="/portraet"
+            class="group relative block rounded-lg overflow-hidden shadow-lg"
+          >
+            <img
+              src="/images/portraet.jpg"
+              alt="Portrætfotografering"
+              class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <h3 class="text-white text-3xl font-bold">Portrætbilleder</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="kategorier">
+      {
+        data.map((kategori) => {
+          return <Fotokategorier data={kategori} />;
+        })
+      }
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const data = await fetch(
+    "https://nizfrlmeuslmzbvoilai.supabase.co/rest/v1/edytasorensen_data",
+    {
+      method: "GET",
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5pemZybG1ldXNsbXpidm9pbGFpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMxNzM2MDAsImV4cCI6MjA0ODc0OTYwMH0.RQ3OCApyz7TpKmzgRC189LxU9mOzQLPHTIxEIIeFO2Y",
+      },
+    }
+  ).then((response) => response.json());
+
+  return data.map((kategori) => {
+    return {
+      params: { slug: kategori.slug },
+      props: { myData: kategori },
+    };
+  });
+}
+
+const { myData } = Astro.props;
+console.log(myData);
+---
+
+<Layout title={myData.name}>
+  <div>
+    <h2>{myData.name}</h2>
+  </div>
+</Layout>

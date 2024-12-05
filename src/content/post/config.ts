@@ -3,9 +3,9 @@ import { defineCollection } from 'astro:content';
 import { cldAssetsLoader } from 'astro-cloudinary/loaders';
 
 export const collections = {
-  featuredProducts: defineCollection({
+  images: defineCollection({
     loader: cldAssetsLoader({
-      folder: 'ecommerce/edytasorensen',  // Folderstien i Cloudinary
-    }),
+      folder: 'ecommerce/edytasorensen'  // Folderstien i Cloudinary
+    })
   }),
 };
