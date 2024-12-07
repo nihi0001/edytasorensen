@@ -1,5 +1,7 @@
 ---
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
 
 ---
 
@@ -10,11 +12,16 @@ import Nav from "../components/Nav.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="Edyta Sørensen">
-    <!-- insæt google font 'old standard tt' -->
+    <!-- insæt google font 'playfair display' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- insæt google font 'nunito sans' -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Oxygen:wght@300;400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <title>Edyta Sørensen</title>
   </head>
 
@@ -28,6 +35,8 @@ import Nav from "../components/Nav.astro";
     
 
     </main>
+
+    <Footer/>
 
 
 

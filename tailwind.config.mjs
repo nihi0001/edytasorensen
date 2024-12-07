@@ -5,10 +5,15 @@ export default {
 	  extend: {
 		colors: {
 		  'custom-bg': '#FFFCFA', // baggrundsfarve
+		  'custom-pink': '#AA6073', // pink headline
+		  'custom-brown': '#433737', // brun brødtekst
+		  'custom-bannerbg': '#F3EEEA', // brun brødtekst
+
+
 		},
 		fontFamily: {
-		  'old-standard': ['"Old Standard TT"', 'serif'],  // Tilføjer Old Standard TT fonten
-		  'another-font': ['""', 'sans-serif'], // 
+		  'playfair': ['"Playfair Display"', 'serif'],  
+		  'oxygen': ['Montserrat', 'sans-serif'],  
 		},
 	  },
 	},

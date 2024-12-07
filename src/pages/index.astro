@@ -1,14 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import { CldImage, CldVideoPlayer, CldUploadWidget } from 'astro-cloudinary';
+import { CldImage, CldVideoPlayer, CldUploadWidget } from "astro-cloudinary";
 import Layout from "../layouts/Layout.astro";
 import MeetEdyta from "../components/MeetEdyta.astro";
 import Anmeldelser from "../components/Anmeldelser.astro";
 
-const images = (await getCollection('images')).slice(0, 4);
-
-
-
+const images = (await getCollection("images")).slice(0, 4);
 ---
 
 <Layout title="Home">
@@ -17,11 +14,11 @@ const images = (await getCollection('images')).slice(0, 4);
     <div class="w-full mx-auto px-[20px] max-w-[1800px]">
       <section class="relative h-[700px] bg-cover bg-center animate-banner">
         <div class="absolute inset-x-0 bottom-12 left-0 flex px-8">
-          <div class="text-white">
-            <h1 class="text-[90px] uppercase font-bold font-old-standard">
+          <div class="text-custom-brown">
+            <h1 class="text-[90px] uppercase font-playfair mb-4">
               Edyta Sørensen
             </h1>
-            <h2 class="text-4xl uppercase font-old-standard mt-[-30px]">
+            <h2 class="text-4xl font-playfair mt-[-30px]">
               Fotograf siden 1990
             </h2>
           </div>
@@ -31,119 +28,138 @@ const images = (await getCollection('images')).slice(0, 4);
 
     <!-- forside -->
 
-    <div>
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-          et labore autem maxime praesentium incidunt quisquam at ea sapiente
-          libero voluptatem, atque in delectus distinctio esse omnis iure
-          exercitationem consectetur?
+    <div class="mt-24">
+      <div class="text-center max-w-2xl mx-auto px-6">
+        <h2 class="mb-8 font-playfair uppercase text-3xl text-custom-pink">
+          Magien ligger i øjeblikket
+        </h2>
+        <p class="text-custom-brown font-oxygen font-light mb-12">
+          Jeg fanger de øjeblikke, der betyder mest – fra babyer og børn til
+          portrætter. Uanset om det er en familiefotograf, en graviditetsession
+          eller et erhvervsbillede, tilbyder jeg en personlig og professionel
+          oplevelse, der skaber smukke minder for livet.
         </p>
       </div>
 
-      <div class="grid grid-cols-3 gap-4">
-        <img src="" alt="Image 1" class="w-72 h-72 object-cover" />
-        <img src="" alt="Image 2" class="w-60 h-60 object-cover" />
-        <img src="" alt="Image 3" class="w-48 h-48 object-cover" />
+      <div
+        class="flex overflow-x-auto gap-8 sm:gap-20 sm:justify-center sm:items-center"
+      >
+        <img
+          src=""
+          alt="Image 1"
+          class="w-64 h-64 object-cover flex-shrink-0"
+        />
+        <img
+          src=""
+          alt="Image 2"
+          class="w-80 h-80 object-cover flex-shrink-0"
+        />
+        <img
+          src=""
+          alt="Image 3"
+          class="w-64 h-64 object-cover flex-shrink-0"
+        />
       </div>
     </div>
 
-        <!-- 1. forsøg med cloudinary -->
+    <!-- 1. forsøg med cloudinary -->
 
     <ul class="grid grid-cols-4 gap-4 mb-12">
-			{images.map(({ data: images }) => {
-				return (
-					<li>
-						<CldImage
-							src={images.public_id}
-							width={900}
-							height={900}
-							crop="auto"
-							alt="test"
-							sizes="25vw"
-						/>
-					</li>
-				)
-			})}
-		</ul>
-    
+      {
+        images.map(({ data: images }) => {
+          return (
+            <li>
+              <CldImage
+                src={images.public_id}
+                width={900}
+                height={900}
+                crop="auto"
+                alt="test"
+                sizes="25vw"
+              />
+            </li>
+          );
+        })
+      }
+    </ul>
+
     <!-- 2. forsøg med cloudinary / direkte copy fra github "max-programming. ændret i src og public id"  -->
 
     <CldImage
-				src="ecommerce/edytasorensen"
-				width={1200}
-				height={630}
-				crop={{
-					width: 1200,
-					height: 630,
-					source: true,
-					gravity: 'center',
-					type: 'fill'
-				}}
-				effects={[
-					{
-						background: 'rgb:010A44'
-					},
-					{
-						color: 'rgb:2A005F',
-						colorize: '100'
-					},
-					{
-						gradientFade: 'symmetric'
-					}
-				]}
-				overlays={[
-					{
-						publicId: 'ZZZ_2424_kopia_sqo7v5',
-						width: '1.0',
-						height: '1.0',
-						crop: 'fill',
-						effects: [{
-							opacity: 20
-						}],
-						flags: 'relative'
-					},
-					{
-						width: 700,
-						crop: 'fit',
-						text: {
-							alignment: 'center',
-							color: 'white',
-							fontFamily: 'Source Sans Pro',
-							fontSize: 80,
-							fontWeight: 'bold',
-							text: 'Astro Cloudinary Examples',
-							lineSpacing: -20
-						},
-						flags: ['relative']
-					},
-				]}
-			/>
-		</p>
-
-
-    <MeetEdyta />
-    <Anmeldelser />
+      src="ecommerce/edytasorensen"
+      width={1200}
+      height={630}
+      crop={{
+        width: 1200,
+        height: 630,
+        source: true,
+        gravity: "center",
+        type: "fill",
+      }}
+      effects={[
+        {
+          background: "rgb:010A44",
+        },
+        {
+          color: "rgb:2A005F",
+          colorize: "100",
+        },
+        {
+          gradientFade: "symmetric",
+        },
+      ]}
+      overlays={[
+        {
+          publicId: "ZZZ_2424_kopia_sqo7v5",
+          width: "1.0",
+          height: "1.0",
+          crop: "fill",
+          effects: [
+            {
+              opacity: 20,
+            },
+          ],
+          flags: "relative",
+        },
+        {
+          width: 700,
+          crop: "fit",
+          text: {
+            alignment: "center",
+            color: "white",
+            fontFamily: "Source Sans Pro",
+            fontSize: 80,
+            fontWeight: "bold",
+            text: "Astro Cloudinary Examples",
+            lineSpacing: -20,
+          },
+          flags: ["relative"],
+        },
+      ]}
+    />
   </main>
 
-  <style>
-    @keyframes bannerImageRotation {
-      0% {
-        background-image: url("");
-      }
-      33% {
-        background-image: url("");
-      }
-      66% {
-        background-image: url("");
-      }
-      100% {
-        background-image: url("");
-      }
-    }
-
-    .animate-banner {
-      animation: bannerImageRotation 15s infinite ease-in-out;
-    }
-  </style>
+  <MeetEdyta />
+  <Anmeldelser />
 </Layout>
+
+<style>
+  @keyframes bannerImageRotation {
+    0% {
+      background-image: url("");
+    }
+    33% {
+      background-image: url("");
+    }
+    66% {
+      background-image: url("");
+    }
+    100% {
+      background-image: url("");
+    }
+  }
+
+  .animate-banner {
+    animation: bannerImageRotation 15s infinite ease-in-out;
+  }
+</style>
