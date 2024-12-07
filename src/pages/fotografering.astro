@@ -15,73 +15,25 @@ const data = await fetch(
 ---
 
 <Layout title="galleri">
-  <!-- top - headline + p -->
-  <section class="text-center max-w-4xl mx-auto px-6">
-    <h2 class="text-5xl font-bold mb-6">Vælg din fotosession</h2>
-    <p class="text-lg mb-12">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, dolorum
-      natus quod sapiente saepe accusamus ipsam. Ex quam dolor, tenetur nisi,
-      corporis consequatur illo ullam hic minima quibusdam, praesentium
-      perferendis?
-    </p>
+  <!-- top - headline + px2 -->
+  <section class="max-w-4xl mx-auto mt-12 px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl text-center font-playfair uppercase mb-20 text-custom-pink">
+      Vælg din fotosession
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-y-2 gap-x-6">
+      <!-- Første P-sektion -->
+      <p class="text-base mb-0 font-oxygen text-custom-brown w-11/12 mx-auto leading-6">
+        Jeg har været fotograf siden 1990 og har arbejdet i både Polen og Kina. Med fokus på detaljer skaber jeg billeder, der vækker følelser og fortæller din historie. I mit hyggelige fotostudie i Vanløse har jeg forskellige rekvisitter og baggrunde, der giver os mulighed for at skabe unikke og personlige billeder.
+      </p>
+      
+      <!-- Anden P-sektion -->
+      <p class="text-base mb-0 font-oxygen text-custom-brown w-11/12 mx-auto leading-6">
+        Ønsker du et klassisk portrætbillede til dit CV eller en hyggelig familiefotosession? Jeg tilbyder både i mit fotostudie i Vanløse eller på en location, der har betydning for dig. Sammen skaber vi billeder, der fanger dine værdier og dine unikke øjeblikke.
+      </p>
+    </div>
   </section>
-
-  <!-- Grid for kategorier -->
-  <div class="grid md:grid-cols-2 lg:grid-cols-4">
-    <!-- Graviditet -->
-    <a href="/graviditet" class="group relative block overflow-hidden">
-      <img
-        src="/images/graviditet.jpg"
-        alt="Graviditetsfotografering"
-        class="w-full h-80 object-cover"
-      />
-      <div
-        class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0"
-      >
-      </div>
-    </a>
-
-    <!-- Familie -->
-    <a href="/familie" class="group relative block overflow-hidden">
-      <img
-        src="/images/familie.jpg"
-        alt="Familiefotografering"
-        class="w-full h-80 object-cover"
-      />
-      <div
-        class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0"
-      >
-      </div>
-    </a>
-
-    <!-- Børn -->
-    <a href="/boern" class="group relative block overflow-hidden">
-      <img
-        src="/images/boern.jpg"
-        alt="Børnefotografering"
-        class="w-full h-80 object-cover"
-      />
-      <div
-        class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0"
-      >
-      </div>
-    </a>
-
-    <!-- Portræt -->
-    <a href="/portraet" class="group relative block overflow-hidden">
-      <img
-        src="/images/portraet.jpg"
-        alt="Portrætfotografering"
-        class="w-full h-80 object-cover"
-      />
-      <div
-        class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0"
-      >
-      </div>
-    </a>
-  </div>
-
-  <section class="kategorier">
+  
+  <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-28 px-4 sm:px-6 lg:px-8"> <!-- skal col 3 slettes?? se når der kommer billede på -->
     {
       data.map((kategori) => {
         return <Fotokategorier data={kategori} />;
