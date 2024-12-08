@@ -1,14 +1,72 @@
----
-// Nav.astro
----
-<nav class="text-custom-black p-4 font-oxygen font-light">
-    <div class="flex justify-end">
-      <ul class="flex space-x-8">
-        <li><a href="/" class="hover:underline">Home</a></li>
-        <li><a href="/booking" class="hover:underline">Booking</a></li>
-        <li><a href="/fotografering" class="hover:underline">Galleri</a></li>
-        <li><a href="/oplevelsen" class="hover:underline">Oplevelsen</a></li>
-        <li><a href="/priser" class="hover:underline">Priser</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav class="text-custom-black p-4 font-playfair font-light">
+  <div class="flex justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="h-8">
+      <img src="" alt="Logo" class="h-8">
+    </a>
+    <!-- Burger-menu knap (kun synlig på mobil) -->
+    <button
+      class="md:hidden flex items-center focus:outline-none"
+      id="burgerMenu"
+    >
+      <div class="space-y-1">
+        <div class="w-6 h-0.5 bg-custom-black"></div>
+        <div class="w-6 h-0.5 bg-custom-black"></div>
+        <div class="w-6 h-0.5 bg-custom-black"></div>
+      </div>
+    </button>
+
+    <!-- Navigation Links (synlig på desktop) -->
+    <ul class="hidden md:flex md:space-x-8">
+      <li><a href="/booking" class="hover:underline">Booking</a></li>
+      <li><a href="/fotografering" class="hover:underline">Galleri</a></li>
+      <li><a href="/oplevelsen" class="hover:underline">Oplevelsen</a></li>
+      <li><a href="/priser" class="hover:underline">Priser</a></li>
+    </ul>
+  </div>
+
+  <!-- Mobil-menu -->
+  <div class="md:hidden">
+    <!-- Luk-knap - kun synlig, når menuen åbnes -->
+    <button
+      class="absolute top-2 right-4 w-6 h-6 flex items-center justify-center text-custom-black rounded-full hidden"
+      id="closeMenu"
+    >
+      &times;
+    </button>
+
+    <ul
+      class="hidden flex-col text-custom-black py-8 mt-2 space-y-2"
+      id="mobileMenu"
+    >
+      <li><a href="/" class="hover:underline block px-4">Home</a></li>
+      <li><a href="/booking" class="hover:underline block px-4">Booking</a></li>
+      <li><a href="/fotografering" class="hover:underline block px-4">Galleri</a></li>
+      <li><a href="/oplevelsen" class="hover:underline block px-4">Oplevelsen</a></li>
+      <li><a href="/priser" class="hover:underline block px-4">Priser</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const burgerMenu = document.getElementById('burgerMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    // Åbn menu
+    burgerMenu.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+      closeMenu.classList.toggle('hidden');
+    });
+
+    // Luk menu
+    closeMenu.addEventListener('click', function () {
+      mobileMenu.classList.add('hidden');
+      closeMenu.classList.add('hidden');
+    });
+
+    // kryds er skjult i desktop
+    closeMenu.classList.add('hidden');
+  });
+</script>

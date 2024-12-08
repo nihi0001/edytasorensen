@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import { CldImage, CldVideoPlayer, CldUploadWidget } from "astro-cloudinary";
 import Layout from "../layouts/Layout.astro";
 import MeetEdyta from "../components/MeetEdyta.astro";
+import Service from "../components/Service.astro";
+
 import Anmeldelser from "../components/Anmeldelser.astro";
 
 const images = (await getCollection("images")).slice(0, 4);
@@ -158,6 +160,7 @@ const images = (await getCollection("images")).slice(0, 4);
   </main>
 
   <MeetEdyta />
+  <Service/>
   <Anmeldelser />
 </Layout>
 

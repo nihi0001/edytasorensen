@@ -1,35 +1,35 @@
 <div class="max-w-6xl mx-auto p-8 grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-8 items-start">
   <!-- Formular til venstre -->
   <main class="space-y-6">
-    <h1 class="text-4xl text-custom-pink mb-6 font-playfair uppercase">Kontakt mig</h1>
+    <h1 class="text-4xl text-custom-black font-medium mb-20 font-playfair uppercase">Kontakt mig</h1>
     <form action="#" method="POST" class="space-y-6">
       <!-- Navn -->
       <div>
-        <label for="name" class="block text-sm font-medium text-custom-brown">Navn</label>
+        <label for="name" class="block text-sm font-medium text-custom-black font-playfair uppercase">Navn</label>
         <input
           type="text"
           id="name"
           name="name"
           required
-          class="mt-1 block w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+          class="mt-1 block w-full p-2 border-b border-custom-black focus:ring-blue-500 focus:border-blue-500 bg-transparent"
         />
       </div>
 
       <!-- E-mail -->
       <div>
-        <label for="email" class="block text-sm font-medium text-custom-brown">E-mail</label>
+        <label for="email" class="block text-sm font-medium font-playfair uppercase text-custom-black">E-mail</label>
         <input
           type="email"
           id="email"
           name="email"
           required
-          class="mt-1 block w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+          class="mt-1 block w-full p-2 border-b border-custom-black focus:ring-blue-500 focus:border-blue-500 bg-transparent"
         />
       </div>
 
       <!-- Radiobuttons til type fotografering -->
       <fieldset>
-        <legend class="block text-sm font-medium text-custom-brown">Vælg type fotografering</legend>
+        <legend class="block text-sm font-medium font-playfair uppercase">Vælg type fotografering:</legend>
         <div class="mt-2 space-y-2">
           <div>
             <input
@@ -38,9 +38,9 @@
               name="photographyType"
               value="Portræt"
               required
-              class="h-4 w-4 text-blue-600 focus:ring-blue-500"
+              class="h-4 w-4 text-blue-600 focus:ring-blue-500 bg-transparent"
             />
-            <label for="portrait" class="ml-2 text-sm text-custom-brown">Portræt</label>
+            <label for="portrait" class="ml-2 text-sm text-custom-black">Portræt</label>
           </div>
           <div>
             <input
@@ -50,7 +50,7 @@
               value="Graviditet"
               class="h-4 w-4 text-blue-600 focus:ring-blue-500"
             />
-            <label for="pregnancy" class="ml-2 text-sm text-custom-brown">Graviditet</label>
+            <label for="pregnancy" class="ml-2 text-sm text-custom-black">Graviditet</label>
           </div>
           <div>
             <input
@@ -60,7 +60,7 @@
               value="Familie"
               class="h-4 w-4 text-blue-600 focus:ring-blue-500"
             />
-            <label for="family" class="ml-2 text-sm text-custom-brown">Familie</label>
+            <label for="family" class="ml-2 text-sm text-custom-black">Familie</label>
           </div>
           <div>
             <input
@@ -70,19 +70,29 @@
               value="Erhverv"
               class="h-4 w-4 text-blue-600 focus:ring-blue-500"
             />
-            <label for="business" class="ml-2 text-sm text-custom-brown">Erhverv</label>
+            <label for="business" class="ml-2 text-sm text-custom-black">Erhverv</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="ander"
+              name="photographyType"
+              value="Andet"
+              class="h-4 w-4 text-blue-600 focus:ring-blue-500"
+            />
+            <label for="business" class="ml-2 text-sm text-custom-black">Andet</label>
           </div>
         </div>
       </fieldset>
 
       <!-- Kommentarer -->
       <div>
-        <label for="comments" class="block text-sm font-medium text-custom-brown">Ønsker, dato og tid</label>
+        <label for="comments" class="block text-sm font-medium text-custom-black font-playfair uppercase">Ønsker, dato og tid</label>
         <textarea
           id="comments"
           name="comments"
           rows="4"
-          class="mt-1 block w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+          class="mt-1 block w-full p-2 border-b border-custom-black focus:ring-blue-500 focus:border-blue-500 bg-transparent"
         ></textarea>
       </div>
 
@@ -90,7 +100,7 @@
       <div>
         <button
           type="submit"
-          class="w-full py-2 px-4 bg-custom-brown text-white font-medium rounded-md  hover:bg-transparent hover:border-[1px] hover:text-custom-brown hover:border-custom-brown"
+          class="w-full py-2 px-4 bg-custom-black text-white font-light font-playfair uppercase  hover:bg-transparent hover:border-[1px] hover:text-custom-black hover:border-custom-black"
         >
           Send forespørgsel
         </button>
