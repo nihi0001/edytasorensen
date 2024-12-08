@@ -4,16 +4,17 @@ export default {
 	theme: {
 	  extend: {
 		colors: {
-		  'custom-bg': '#FFFCFA', // baggrundsfarve
+		  'custom-bg': '#FFFCF5', // baggrundsfarve
 		  'custom-pink': '#AA6073', // pink headline
 		  'custom-brown': '#433737', // brun brødtekst
-		  'custom-bannerbg': '#F3EEEA', // brun brødtekst
+		  'custom-black': '#323232', // sort brødtekst
+		  'custom-bannerbg': '#F3EEEA', // brun 
 
 
 		},
 		fontFamily: {
-		  'playfair': ['"Playfair Display"', 'serif'],  
-		  'oxygen': ['Montserrat', 'sans-serif'],  
+		  'playfair': ['"Karla"', 'sans'],  
+		  'oxygen': ['"DM Sans"', 'sans'],  
 		},
 	  },
 	},

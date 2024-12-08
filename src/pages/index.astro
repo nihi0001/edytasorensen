@@ -14,11 +14,11 @@ const images = (await getCollection("images")).slice(0, 4);
     <div class="w-full mx-auto px-[20px] max-w-[1800px]">
       <section class="relative h-[700px] bg-cover bg-center animate-banner">
         <div class="absolute inset-x-0 bottom-12 left-0 flex px-8">
-          <div class="text-custom-brown">
-            <h1 class="text-[90px] uppercase font-playfair mb-4">
+          <div class="text-custom-black">
+            <h1 class="text-[90px] uppercase font-playfair font-light mb-4">
               Edyta Sørensen
             </h1>
-            <h2 class="text-4xl font-playfair mt-[-30px]">
+            <h2 class="text-4xl font-playfair uppercase font-light mt-[-30px]">
               Fotograf siden 1990
             </h2>
           </div>
@@ -29,11 +29,11 @@ const images = (await getCollection("images")).slice(0, 4);
     <!-- forside -->
 
     <div class="mt-24">
-      <div class="text-center max-w-2xl mx-auto px-6">
-        <h2 class="mb-8 font-playfair uppercase text-3xl text-custom-pink">
-          Magien ligger i øjeblikket
+      <div class="max-w-md px-4 sm:px-6 lg:px-8">
+        <h2 class="mb-8 font-playfair font-medium uppercase text-3xl text-custom-black">
+          Når øjeblikket tæller, skal billedet gøre det samme
         </h2>
-        <p class="text-custom-brown font-oxygen font-light mb-12">
+        <p class="text-custom-black font-oxygen font-light mb-12">
           Jeg fanger de øjeblikke, der betyder mest – fra babyer og børn til
           portrætter. Uanset om det er en familiefotograf, en graviditetsession
           eller et erhvervsbillede, tilbyder jeg en personlig og professionel
@@ -59,6 +59,24 @@ const images = (await getCollection("images")).slice(0, 4);
           alt="Image 3"
           class="w-64 h-64 object-cover flex-shrink-0"
         />
+      </div>
+
+      <div class="flex justify-center gap-4 mt-8">
+        <!-- Første knap: gennemsigtig baggrund med brun border -->
+        <a
+          href="/fotografering"
+          class="px-6 py-3 border-[1px] border-custom-black bg-transparent font-light text-custom-black font-playfair uppercase transition duration-200 ease-in-out hover:bg-custom-black hover:text-white"
+        >
+          Se portefølje
+        </a>
+
+        <!-- Anden knap: brun baggrund med hvid tekst -->
+        <a
+          href="/booking"
+          class="px-6 py-3 bg-custom-black text-white font-playfair uppercase font-light transition duration-200 ease-in-out hover:bg-transparent hover:border-[1px] hover:border-custom-black hover:text-custom-black"
+        >
+          Kontakt for booking
+        </a>
       </div>
     </div>
 
