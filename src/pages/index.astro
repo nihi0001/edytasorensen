@@ -5,34 +5,39 @@ import Service from "../components/Service.astro";
 
 import Anmeldelser from "../components/Anmeldelser.astro";
 import Instagram from "../components/Instagram.astro";
-
 ---
 
 <Layout title="Home">
   <main>
     <!-- Banner med roterende baggrundsbilleder -->
     <div class="w-full mx-auto px-[20px] max-w-[1800px]">
-      <section class="relative h-[500px] sm:h-[500px] md:h-[600px] lg:h-[700px] bg-cover bg-center animate-banner">
+      <section
+        class="relative h-[500px] sm:h-[500px] md:h-[600px] lg:h-[700px] bg-cover bg-center animate-banner"
+      >
         <div class="absolute inset-x-0 bottom-12 left-0 flex px-8">
           <div class="text-white">
-            <h1 class="text-4xl sm:text-5xl lg:text-7xl uppercase font-playfair font-light mb-8">
+            <h1
+              class="text-4xl sm:text-5xl lg:text-7xl uppercase font-playfair font-light mb-8"
+            >
               Edyta Sørensen
             </h1>
-            <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-playfair uppercase font-light mt-[-30px]">
+            <h2
+              class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-playfair uppercase font-light mt-[-30px]"
+            >
               Fotograf siden 1990
             </h2>
           </div>
         </div>
       </section>
     </div>
-    
-    
 
     <!-- forside -->
 
     <div class="mt-24 mb-24">
       <div class="max-w-md px-4 sm:px-6 lg:px-8">
-        <h2 class="mb-8 font-playfair font-medium uppercase text-3xl text-custom-black">
+        <h2
+          class="mb-8 font-playfair font-medium uppercase text-3xl text-custom-black"
+        >
           Når øjeblikket tæller, skal billedet gøre det samme
         </h2>
         <p class="text-custom-black font-oxygen font-light mb-12">
@@ -43,17 +48,19 @@ import Instagram from "../components/Instagram.astro";
         </p>
       </div>
 
-      <div class="flex overflow-x-auto gap-4 lg:gap-20 sm:justify-center sm:items-center">
+      <div
+        class="flex overflow-x-auto gap-4 lg:gap-20 sm:justify-center sm:items-center"
+      >
         <img
           src="images/front1fam.webp"
           alt="Image 1"
           class="w-72 h-96 sm:w-80 sm:h-104 md:w-80 md:h-128 object-cover flex-shrink-0"
         />
         <img
-        src="images/front3.webp"
-        alt="Image 2"
-        class="w-72 h-96 sm:w-80 sm:h-104 md:w-96 md:h-144 lg:w-112 lg:h-[530px] object-cover flex-shrink-0"
-      />
+          src="images/front3.webp"
+          alt="Image 2"
+          class="w-72 h-96 sm:w-80 sm:h-104 md:w-96 md:h-144 lg:w-112 lg:h-[530px] object-cover flex-shrink-0"
+        />
         <img
           src="images/front1por.webp"
           alt="Image 3"
@@ -61,36 +68,30 @@ import Instagram from "../components/Instagram.astro";
         />
       </div>
 
-     <div class="flex flex-col sm:flex-row justify-center gap-4 mt-20 sm:mx-4">
-  <!-- Første knap: gennemsigtig baggrund med brun border -->
-  <a
-    href="/fotografering"
-    class="px-6 py-3 border-[1px] border-custom-black bg-transparent font-light text-custom-black font-playfair uppercase transition duration-200 ease-in-out hover:bg-custom-black hover:text-white w-auto"
-  >
-    Se portefølje
-  </a>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-20 mx-4">
+        <!-- Første knap: gennemsigtig baggrund med brun border -->
+        <a
+          href="/fotografering"
+          class="px-6 py-3 border-[1px] border-custom-black bg-transparent font-light text-custom-black font-playfair uppercase transition duration-200 ease-in-out hover:bg-custom-black hover:text-white w-auto"
+        >
+          Se portefølje
+        </a>
 
-  <!-- Anden knap: brun baggrund med hvid tekst -->
-  <a
-    href="/booking"
-    class="px-6 py-3 bg-custom-black text-white font-playfair uppercase font-light transition duration-200 ease-in-out hover:bg-transparent hover:border-[1px] hover:border-custom-black hover:text-custom-black w-auto"
-  >
-    Kontakt for booking
-  </a>
-</div>
-
-      
-      
+        <!-- Anden knap: brun baggrund med hvid tekst -->
+        <a
+          href="/booking"
+          class="px-6 py-3 bg-custom-black text-white font-playfair uppercase font-light transition duration-200 ease-in-out hover:bg-transparent hover:border-[1px] hover:border-custom-black hover:text-custom-black w-auto"
+        >
+          Kontakt for booking
+        </a>
+      </div>
     </div>
-
-    
-    
   </main>
 
   <MeetEdyta />
-  <Service/>
+  <Service />
   <Anmeldelser />
-  <Instagram/>
+  <Instagram />
 </Layout>
 
 <style>
