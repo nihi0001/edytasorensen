@@ -2,23 +2,137 @@
 
 ---
 
-<!-- martin eksempel -->
-<form>
-  <label for="name">Name</label>
-  <input type="text" name="name" required />
+<div class="max-w-6xl mx-auto p-8 grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-8 items-start">
+  <!-- form til venstre -->
 
-  <label for="email">email</label>
-  <input type="text" name="email" required />
+  <div>
+    <h1
+      class="text-4xl text-custom-black font-medium mb-20 font-playfair uppercase"
+    >
+      Skab dine minder - kontakt mig nu
+    </h1>
 
-  <label for="text">comments</label>
-  <input type="text" name="comments" />
+    <form>
+      <!-- navn -->
+      <label for="name" class="block text-sm font-medium text-custom-black font-playfair uppercase">Name*</label>
+      <input
+        type="text"
+        name="name"
+        required
+        class="p-2 block w-full border-b border-custom-black focus:ring-blue-500 focus:border-blue-500 bg-transparent"
+      />
 
-  <button>SEND</button>
-</form>
+      <!-- e-mail -->
+      <label
+        for="email"
+        class="mt-6 block text-sm font-medium font-playfair uppercase text-custom-black"
+        >email*</label
+      >
+      <input
+        type="text"
+        name="email"
+        required
+        class="block w-full p-2 border-b border-custom-black focus:ring-blue-500 focus:border-blue-500 bg-transparent"
+      />
+
+      <!-- radiobuttons -->
+
+      <fieldset>
+        <legend class="mt-6 block text-sm font-medium font-playfair uppercase"
+          >Vælg fotograferingstype*</legend
+        >
+
+        <div class="mt-4 space-y-3">
+          <label class="block ml-2 text-sm text-custom-black font-normal font-playfair">
+            <input
+              type="radio"
+              name="photographyType"
+              value="Børnefotografering"
+              required
+              class="h-4 w-4 text-blue-600 focus:ring-blue-500 bg-transparent"
+            />
+            Børnefotografering
+          </label>
+          <label class="block ml-2 text-sm text-custom-black font-normal font-playfair">
+            <input
+              type="radio"
+              name="photographyType"
+              value="Familiefotografering"
+              required
+              class="h-4 w-4 text-blue-600 focus:ring-blue-500 bg-transparent"
+            />
+            Familiefotografering
+          </label>
+          <label class="block ml-2 text-sm text-custom-black font-normal font-playfair">
+            <input
+              type="radio"
+              name="photographyType"
+              value="Babyfotografering"
+              required
+              class="h-4 w-4 text-blue-600 focus:ring-blue-500 bg-transparent"
+            />
+            Babyfotografering
+          </label>
+          <label class="block ml-2 text-sm text-custom-black font-normal font-playfair">
+            <input
+              type="radio"
+              name="photographyType"
+              value="Portrætbilleder"
+              required
+              class="h-4 w-4 text-blue-600 focus:ring-blue-500 bg-transparent"
+            />
+            Portrætbilleder
+          </label>
+          <label class="block ml-2 text-sm text-custom-black font-normal font-playfair">
+            <input
+              type="radio"
+              name="photographyType"
+              value="Portrætbilleder"
+              required
+              class="h-4 w-4 text-blue-600 focus:ring-blue-500 bg-transparent"
+            />
+            Andet
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- kommentare -->
+
+      <label
+        for="comments"
+        class="block mt-6 text-sm font-medium text-custom-black font-playfair uppercase"
+      >
+        Ønsker, dato og tid
+      </label>
+      <textarea
+        name="comments"
+        id="comments"
+        rows="4"
+        class="mt-1 mb-6 block w-full p-2 border-b border-custom-black focus:ring-blue-500 focus:border-blue-500 bg-transparent font-playfair text-sm font-light"
+      >
+      </textarea>
+
+      <!-- knap, send til database -->
+
+      <button
+        class="w-full py-2 px-4 bg-custom-black text-white font-light font-playfair uppercase hover:bg-transparent hover:border-[1px] hover:text-custom-black hover:border-custom-black"
+        >SEND FORESPØRGSEL</button
+      >
+    </form>
+  </div>
+
+   <!-- Billede til højre -->
+   <div class="hidden md:block">
+    <img src="" alt="" class="w-full h-auto object-cover" />
+  </div>
+
+</div>
 
 <script>
-  const url ="https://nizfrlmeuslmzbvoilai.supabase.co/rest/v1/contact_request";
-  const key ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5pemZybG1ldXNsbXpidm9pbGFpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMxNzM2MDAsImV4cCI6MjA0ODc0OTYwMH0.RQ3OCApyz7TpKmzgRC189LxU9mOzQLPHTIxEIIeFO2Y";
+  const url =
+    "https://nizfrlmeuslmzbvoilai.supabase.co/rest/v1/contact_request";
+  const key =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5pemZybG1ldXNsbXpidm9pbGFpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMxNzM2MDAsImV4cCI6MjA0ODc0OTYwMH0.RQ3OCApyz7TpKmzgRC189LxU9mOzQLPHTIxEIIeFO2Y";
 
   const form = document.querySelector("form");
   form.addEventListener("submit", sendForm);
@@ -29,6 +143,7 @@
     let name = formData.name.value;
     let email = formData.email.value;
     let comments = formData.comments.value;
+    let photographyType = formData.photographyType.value;
 
     fetch(url, {
       method: "POST",
@@ -37,11 +152,13 @@
         Accecpt: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, comments }),
-    }).then(() => {
-      form.reset(); // Reset form efter "send"
-    }).catch((error) => {
-      console.error("Error:", error); // errors
-    });
+      body: JSON.stringify({ name, email, comments, photographyType }),
+    })
+      .then(() => {
+        form.reset(); // Reset form efter "send"
+      })
+      .catch((error) => {
+        console.error("Error:", error); // errors
+      });
   }
 </script>
