@@ -2,7 +2,7 @@
 
 ---
 
-<div class="max-w-6xl mx-auto p-8 grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-8 items-start">
+<div class="p-8 grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-8 items-start">
   <!-- form til venstre -->
 
   <div>
@@ -12,7 +12,7 @@
       Skab dine minder - kontakt mig nu
     </h1>
 
-    <form>
+    <form class="max-w-6xl">
       <!-- navn -->
       <label for="name" class="block text-sm font-medium text-custom-black font-playfair uppercase">Name*</label>
       <input
@@ -122,8 +122,11 @@
   </div>
 
    <!-- Billede til højre -->
-   <div class="hidden md:block">
-    <img src="" alt="" class="w-full h-auto object-cover" />
+   <div class="hidden md:block ml-auto">
+    <div class="flex flex-col space-y-2 justify-end">
+      <img src="/images/ig4.webp" alt="" class="w-64 h-auto object-cover" />
+      <img src="/images/ig3.webp" alt="" class="w-64 h-auto object-cover" />
+    </div>
   </div>
 
 </div>
