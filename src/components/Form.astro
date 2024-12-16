@@ -1,20 +1,29 @@
----
+<div class="p-1 grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-12 items-start mb-12 sm:mb-20">
+  <!-- Billede til venstre -->
+  <div class="hidden md:block mr-auto">
+    <div class="flex flex-col space-y-1 justify-end">
+      <img src="/images/imggridkid3.webp" alt="" class="w-[500px] h-[250px] object-cover" />
+      <img src="/images/bag4.webp" alt="" class="w-[500px] h-[250px] object-cover" />
+      <img src="/images/bag2.webp" alt="" class="w-[500px] h-[250px] object-cover" />
+    </div>
+  </div>
 
----
-
-<div class="p-8 grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-8 items-start mb-12 sm:mb-20">
-  <!-- form til venstre -->
-
+  <!-- Form til højre -->
   <div>
+    <div class="px-4">
     <h1
-      class="text-4xl text-custom-black font-medium mb-20 font-playfair uppercase"
+      class="text-4xl text-custom-black font-medium mb-8 font-playfair uppercase"
     >
-      Skab dine minder - kontakt mig nu
+      kontakt
     </h1>
 
-    <form class="max-w-6xl">
+    <p class="text-sm font-oxygen font-light mb-12 max-w-lg">
+      Jeg ser frem til at høre fra dig og hjælpe med at gøre dine fotoønsker til virkelighed. Skriv gerne dine tanker og idéer i bookingformularen, eller send en e-mail til hallo@edytasorensen.dk. Jeg bestræber mig på at svare dig inden for 1-3 hverdage.    </p>
+  </div>
+
+    <form class="max-w-md px-4">
       <!-- navn -->
-      <label for="name" class="block text-sm font-medium text-custom-black font-playfair uppercase">Name*</label>
+      <label for="name" class="block text-sm font-medium text-custom-black font-playfair uppercase">Navn*</label>
       <input
         type="text"
         name="name"
@@ -102,7 +111,7 @@
         for="comments"
         class="block mt-6 text-sm font-medium text-custom-black font-playfair uppercase"
       >
-        Ønsker, dato og tid
+        Ønske til dato, lokation og stemning
       </label>
       <textarea
         name="comments"
@@ -120,16 +129,8 @@
       >
     </form>
   </div>
-
-   <!-- Billede til højre -->
-   <div class="hidden md:block ml-auto">
-    <div class="flex flex-col space-y-2 justify-end">
-      <img src="/images/ig4.webp" alt="" class="w-64 h-auto object-cover" />
-      <img src="/images/ig3.webp" alt="" class="w-64 h-auto object-cover" />
-    </div>
-  </div>
-
 </div>
+
 
 <script>
   const url =
