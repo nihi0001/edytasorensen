@@ -1,5 +1,6 @@
 ---
 import Instagram from "../../components/Instagram.astro";
+import Service from "../../components/Service.astro";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
@@ -154,6 +155,7 @@ console.log(myData);
     </div>
   </div>
 
+  <Service/>
   <Instagram/>
 </Layout>
 
