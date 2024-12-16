@@ -40,84 +40,77 @@ console.log(myData);
     <!-- swipe galleri her -->
 
     <div class="relative mb-16">
+      <!-- Billeder Wrapper -->
       <div class="overflow-hidden">
-        <!-- Billeder Wrapper -->
         <div
           id="galleryImages"
           class="flex transition-transform duration-300 ease-in-out"
         >
-          <!-- Billede 1 -->
-          <div class="w-1/3">
+          <!-- Billederne -->
+           <!-- overvej om det kun skal være 1/3 -->
+          <div class="w-1/2 sm:w-1/3 flex-shrink-0">
             <img
               src={`/images/${myData.imggallery1}`}
               alt={myData.slug}
               class="w-full h-auto object-cover"
             />
           </div>
-          <!-- Billede 2 -->
-          <div class="w-1/3">
+          <div class="w-1/2 sm:w-1/3 flex-shrink-0">
             <img
               src={`/images/${myData.imggallery2}`}
               alt={myData.slug}
               class="w-full h-auto object-cover"
             />
           </div>
-          <!-- Billede 3 -->
-          <div class="w-1/3">
+          <div class="w-1/2 sm:w-1/3 flex-shrink-0">
             <img
               src={`/images/${myData.imggallery3}`}
               alt={myData.slug}
               class="w-full h-auto object-cover"
             />
           </div>
-
-           <!-- Billede 4 -->
-           <div class="w-1/3">
+          <div class="w-1/2 sm:w-1/3 flex-shrink-0">
             <img
               src={`/images/${myData.imggallery4}`}
               alt={myData.slug}
               class="w-full h-auto object-cover"
             />
           </div>
-
-           <!-- Billede 5 -->
-           <div class="w-1/3">
+          <div class="w-1/2 sm:w-1/3 flex-shrink-0">
             <img
               src={`/images/${myData.imggallery5}`}
               alt={myData.slug}
               class="w-full h-auto object-cover"
             />
           </div>
-
-            <!-- Billede 6 -->
-            <div class="w-1/3">
-              <img
-                src={`/images/${myData.imggallery6}`}
-                alt={myData.slug}
-                class="w-full h-auto object-cover"
-              />
-            </div>
+          <div class="w-1/2 sm:w-1/3 flex-shrink-0">
+            <img
+              src={`/images/${myData.imggallery6}`}
+              alt={myData.slug}
+              class="w-full h-auto object-cover"
+            />
+          </div>
         </div>
       </div>
-  
-      <!-- Venstre Pil -->
-      <button
-      id="prevBtn"
-      class="absolute top-1/2 left-4 transform -translate-y-1/2"
-    >
-      <img src="/images/pilgallerileft.svg" alt="Previous" class="w-10 h-10" />
-    </button>
-  
-      <!-- Højre Pil -->
-      <button
-      id="nextBtn"
-      class="absolute top-1/2 right-4 transform -translate-y-1/2"
-    >
-      <img src="/images/pilgalleri.svg" alt="Next" class="w-8 h-8" />
-    </button>
-
     
-  </div>
+      <!-- Navigation (piler) -->
+      <button
+        id="prevBtn"
+        class="absolute top-1/2 left-4 transform -translate-y-1/2  p-2 "
+      >
+        <img src="/images/pilgallerileft.svg" alt="Previous" class="w-8 h-8" />
+      </button>
+      <button
+        id="nextBtn"
+        class="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 "
+      >
+        <img src="/images/pilgalleri.svg" alt="Next" class="w-8 h-8" />
+      </button>
+    </div>
+    
+    
+
+  <!-- story telling -->
 
   <div class="max-w-3xl mt-8 px-4 sm:px-6 md:px-8 lg:px-12 mb-16">
   <p class="max-w-lg text-sm font-oxygen font-light">{myData.storytelling}</p>
@@ -165,28 +158,70 @@ console.log(myData);
 </Layout>
 
 <script>
-   document.addEventListener('DOMContentLoaded', () => {
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const galleryImages = document.getElementById('galleryImages');
+document.addEventListener("DOMContentLoaded", () => {
+  const gallery = document.getElementById("galleryImages");
+  const images = gallery.children; // Alle billeder
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const imagesPerView = 3; // der vises 3 billeder
+  const totalImages = images.length; // billeder i alt
+  let currentIndex = imagesPerView; // Start på første billede
 
-    let currentIndex = 0;
-    const totalImages = 3; // Antal billeder i galleriet (ændr dette, hvis flere billeder)
+  // loop - så efter billede 6 vises billede 1
+  const firstClones = []; // opretter array firstClone
+  const lastClones = []; // opretter array lastClone
+  for (let i = 0; i < imagesPerView; i++) {
+    firstClones.push(images[i].cloneNode(true)); // Første billeder
+    lastClones.push(images[totalImages - i - 1].cloneNode(true)); // Sidste billeder
+  }
 
-    // Funktionslogik for venstre pil
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        galleryImages.style.transform = `translateX(-${currentIndex * 33.3333}%)`;
-      }
-    });
+  // Tilføj klonede billeder i starten og slutningen
+  lastClones.reverse().forEach((clone) => gallery.prepend(clone)); // Sidste billeder forrest
+  firstClones.forEach((clone) => gallery.append(clone)); // Første billeder bagerst
 
-    // Funktionslogik for højre pil
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < totalImages - 1) {
-        currentIndex++;
-        galleryImages.style.transform = `translateX(-${currentIndex * 33.3333}%)`;
-      }
-    });
+  // Juster galleriet, så vi starter på det "rigtige" første billede
+  gallery.style.transform = `translateX(-${(currentIndex * 100) / imagesPerView}%)`; // formel der regner ud hvor langt galleriet skal rulle, for at vise næste billede
+
+  // Opdater galleriet
+  const updateGallery = () => {
+    const offset = -(currentIndex * 100) / imagesPerView;
+    gallery.style.transition = "transform 0.3s ease-in-out"; // glidende animation
+    gallery.style.transform = `translateX(${offset}%)`;
+  };
+
+  // Håndterer looping-effekt
+  const handleLoop = () => {
+    if (currentIndex === 0) {
+      currentIndex = totalImages; // Gå til sidste sæt billeder
+      gallery.style.transition = "none"; // Fjern animation
+      gallery.style.transform = `translateX(-${(currentIndex * 100) / imagesPerView}%)`;
+    }
+    if (currentIndex === totalImages + imagesPerView) {
+      currentIndex = imagesPerView; // Gå til første sæt billeder
+      gallery.style.transition = "none"; // Fjern animation
+      gallery.style.transform = `translateX(-${(currentIndex * 100) / imagesPerView}%)`;
+    }
+  };
+
+  // Næste billeder
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < totalImages + imagesPerView) {
+      currentIndex++;
+      updateGallery();
+      setTimeout(handleLoop, 300); // Vent på animation før looping
+    }
   });
+
+  // Forrige billeder
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateGallery();
+      setTimeout(handleLoop, 300); // Vent på animation før looping
+    }
+  });
+});
+
+
+
 </script>
