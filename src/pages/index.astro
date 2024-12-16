@@ -120,6 +120,12 @@ import Instagram from "../components/Instagram.astro";
   .animate-banner {
     animation: bannerImageRotation 15s infinite ease-in-out;
   }
+
+  @media (max-width: 640px) {
+  .animate-banner {
+    animation: bannerImageRotation 10s infinite ease-in-out; /* Skift til hurtigere rotation */
+  }
+}
 </style>
 
 <script>
