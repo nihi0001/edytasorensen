@@ -102,24 +102,24 @@ import Instagram from "../components/Instagram.astro";
 </Layout>
 
 <style>
-  @keyframes bannerImageRotation {
-    0% {
-      background-image: url("images/bag1.webp");
-    }
-    33% {
-      background-image: url("images/formimg3.webp");
-    }
-    66% {
-      background-image: url("images/fambannernew.webp");
-    }
-    100% {
-      background-image: url("images/familiebanner.webp");
-    }
+ @keyframes bannerImageRotation {
+  0% {
+    background-image: url("images/bag1.webp");
   }
+  33% {
+    background-image: url("images/formimg3.webp");
+  }
+  66% {
+    background-image: url("images/fambannernew.webp");
+  }
+  100% {
+    background-image: url("images/familiebanner.webp");
+  }
+}
 
-  .animate-banner {
-    animation: bannerImageRotation 15s infinite steps(1) none;
-  }
+.animate-banner {
+  animation: bannerImageRotation 15s infinite ease-in-out;
+}
 
 </style>
 
