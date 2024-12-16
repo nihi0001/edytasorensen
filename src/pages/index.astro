@@ -13,18 +13,23 @@ import Instagram from "../components/Instagram.astro";
     <section
       class="relative h-[500px] sm:h-[500px] md:h-[600px] lg:h-[700px] bg-cover bg-center animate-banner"
     >
-      <div class="absolute inset-x-0 bottom-12 left-0 flex px-8">
+      <div class="absolute inset-x-0 bottom-2 sm:bottom-10 left-0 flex px-4">
         <div class="text-white">
-          <h1
-            class="text-4xl sm:text-5xl lg:text-7xl uppercase font-playfair font-light mb-8"
-          >
-            Edyta Sørensen
-          </h1>
+       
           <h2
-            class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-playfair uppercase font-light mt-[-30px]"
+            class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-playfair uppercase font-light mt-[-30px] max-w-[80%] sm:max-w-lg"
           >
-            Fotograf siden 1990
+          Skab tidløse minder med professionel fotografering
           </h2>
+
+          <!-- Udforsk knap -->
+          <div class="scroll-smooth">
+            <a
+              href="#forside"
+              class="mt-6 mb-6 inline-block px-6 py-3 text-white font-playfair font-light uppercase border-[1px] border-white hover:bg-white hover:text-custom-black"
+              >udforsk</a
+            >
+          </div>
         </div>
       </div>
     </section>
@@ -32,7 +37,7 @@ import Instagram from "../components/Instagram.astro";
 
   <!-- forside -->
 
-  <div class="mt-24 mb-20">
+  <div id="forside" class="mt-24 mb-20">
     <div class="max-w-md px-4 sm:px-6 lg:px-8">
       <h2
         class="mb-8 font-playfair font-medium uppercase text-3xl text-custom-black"
@@ -122,3 +127,21 @@ import Instagram from "../components/Instagram.astro";
     animation: bannerImageRotation 15s infinite ease-in-out;
   }
 </style>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Find det element, der skal scrolles til
+      const targetId = this.getAttribute("href").substring(1); // Fjern '#'
+      const targetElement = document.getElementById(targetId);
+
+      // Scroll til det fundne element med smooth scroll
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  });
+</script>
